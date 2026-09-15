@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinOps for AI Workloads — shubhanshu.cloud</title>
+<meta name="description" content="Why cloud governance needs to change before you scale GenAI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="mark" href="../index.html">shubhanshu.cloud</a>
+    <nav>
+      <a href="mailto:contact@shubhanshu.cloud">Contact</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <a class="back-link" href="../index.html">&larr; All writing</a>
+
+  <article class="post">
+    <p class="post-meta">2026</p>
+    <h1>FinOps for AI Workloads: Why Your Cloud Governance Needs to Change Before You Scale GenAI</h1>
+
+    <p>Every enterprise I talk to right now is doing the same thing: standing up GenAI pilots as fast as procurement will let them. Fewer of them are asking a much more boring, much more important question — who is watching what this costs once it stops being a pilot?</p>
+
+    <p>That gap is where a lot of cloud budgets are quietly going to break in the next 12 months.</p>
+
+    <h2>The pattern I keep seeing</h2>
+    <p>Cloud FinOps grew up around a fairly predictable cost shape: compute and storage that scale roughly with usage, reserved capacity you can forecast, and cost centers that map cleanly to teams or products. Most governance frameworks — tagging standards, budget alerts, Terraform-enforced guardrails — were built around that shape.</p>
+    <p>GenAI workloads don't follow it.</p>
+    <ul>
+      <li><strong>Token-based pricing doesn't map to infrastructure the way EC2 hours do.</strong> A single prompt change, a longer context window, or a retrieval step added to a pipeline can move cost by an order of magnitude with zero change to the underlying infrastructure footprint your existing dashboards track.</li>
+      <li><strong>Usage is driven by product decisions, not platform decisions.</strong> The person who just tripled your model spend is a product manager who added a feature, not an engineer who provisioned a resource. Traditional FinOps governance assumes the infrastructure team is close to the cost driver. With AI, it usually isn't.</li>
+      <li><strong>Experimentation is the point, which breaks forecasting.</strong> FinOps maturity models lean heavily on predictability — you can't optimize what you can't forecast, and you can't forecast a workload whose whole purpose is to be experimented with.</li>
+    </ul>
+    <p>None of this means FinOps principles stop applying to AI. It means the mechanics need to change, and most organizations haven't updated them yet.</p>
+
+    <h2>What actually needs to change</h2>
+    <p><strong>1. Tagging and cost allocation need a model-and-workload dimension, not just a team dimension.</strong><br>
+    Knowing that "Team X spent $40K" is far less useful than knowing "Team X spent $40K, of which $31K was a single retrieval-heavy workflow running GPT-4-class calls on every request instead of routing simple queries to a cheaper model." Without that granularity, cost conversations stay at the team level instead of the workflow level, where the actual savings live.</p>
+
+    <p><strong>2. Budget alerts need to move from monthly to near-real-time.</strong><br>
+    A traditional cloud budget alert at 80% of monthly spend is often too slow for AI workloads, where a runaway loop or a misconfigured agent can burn a month's budget in an afternoon. Guardrails here look more like rate limits and circuit breakers than dashboards.</p>
+
+    <p><strong>3. Governance has to sit with the product team, not just above it.</strong><br>
+    The most effective pattern I've seen isn't a central FinOps team policing AI spend after the fact — it's embedding cost visibility directly into the tools product and engineering teams already use, so the person making the model-selection decision sees the cost tradeoff at the moment they make it, not in a report three weeks later.</p>
+
+    <p><strong>4. Model selection is now a cost-architecture decision, not just a technical one.</strong><br>
+    Choosing between a frontier model and a smaller, fine-tuned one for a given task is functionally the same decision as choosing between on-demand and reserved capacity used to be. It deserves the same level of deliberate governance — and right now, in most organizations, it doesn't get it.</p>
+
+    <h2>Where this leaves cloud teams</h2>
+    <p>If you've spent years building FinOps maturity around infrastructure spend — tagging discipline, reserved instance strategy, rightsizing — that foundation isn't wasted. It's the operational muscle memory you need. But it has to be extended, deliberately, to cover a cost driver that behaves nothing like the ones it was built for.</p>
+    <p>The organizations that get ahead of this aren't the ones with the most sophisticated AI platforms. They're the ones who treated AI cost governance as a FinOps problem before the first six-figure monthly bill forced the conversation.</p>
+    <p>That's the gap worth closing now, while it's still cheap to fix.</p>
+
+    <hr>
+    <p class="byline">I write about cloud cost governance, FinOps, and the operational side of enterprise AI adoption. If you're navigating this shift on your own cloud platform, <a href="mailto:contact@shubhanshu.cloud">get in touch</a>.</p>
+  </article>
+
+</div>
+</body>
+</html>
